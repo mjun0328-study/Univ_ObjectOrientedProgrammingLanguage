@@ -6,7 +6,7 @@ class QuadraticEquation {
     double b = input.nextDouble();
     double c = input.nextDouble();
 
-    QESolver solver = new QESolver(______);
+    QESolver solver = new QESolver(a, b, c);
     double discriminant = solver.getDiscriminant();
 
     if(discriminant == 0) {
@@ -15,6 +15,7 @@ class QuadraticEquation {
     else {
       System.out.printf("The roots are %.1f and %.1f", solver.getRoot1(), solver.getRoot2());
     }
+    System.out.printf("\r\n");
   }
 
   static class QESolver {
@@ -22,20 +23,22 @@ class QuadraticEquation {
     private double b;
     private double c;
 
-    public QESolver() {
-      // Constructor
+    public QESolver(double a_, double b_, double c_) {
+      a = a_;
+      b = b_;
+      c = c_;
     }
 
     double getDiscriminant() {
-      // get discriminant number
+      return b * b - 4 * a * c;
     }
 
     double getRoot1() {
-      // get r1
+      return (-1 * b + Math.sqrt(this.getDiscriminant())) / (2 * a);
     }
 
     double getRoot2() {
-      // get r2
+      return (-1 * b - Math.sqrt(this.getDiscriminant())) / (2 * a);
     }
   }
 }
