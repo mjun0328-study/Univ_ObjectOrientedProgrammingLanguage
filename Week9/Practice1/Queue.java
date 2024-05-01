@@ -10,35 +10,29 @@ public class Queue {
     }
 
     public void enqueue(int value) {
-        /*
-         * insert data at the end of the queue
-         */
+        elements[size] = value;
+        size++;
     }
 
     public int dequeue() {
-        /* 
-         * delete the start of the queue
-         */
+        if (isEmpty()) {
+            throw new RuntimeException("Queue is empty");
+        }
+        int result = elements[0];
+        // Shift all elements to the left by one position
+        System.arraycopy(elements, 1, elements, 0, size - 1);
+        elements[--size] = 0; // Optional: Clear the last element
+        return result;
     }
 
     public boolean isEmpty() {
-        /*
-         * return if the queue is empty
-         */
+        return size == 0;
     }
 
     public int getSize() {
-        /*
-         * return the size of the queue
-         */
+        return size;
     }
-
-
-
-
-
-
-
+    
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);

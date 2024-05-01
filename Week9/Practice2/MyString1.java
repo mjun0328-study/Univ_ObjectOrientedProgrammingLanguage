@@ -9,35 +9,24 @@ public class MyString1 {
     }
 
     public int length() {
-        /*
-         * return legnth of the string
-         */
+        return chars.length;
     }
 
     public char charAt(int index) {
-        /*
-         * return char at a specific position
-         */
+        return chars[index];
     }
 
     public MyString1 substring(int begin, int end) {
-        /*
-         * return string at a specific position
-         */
+        return new MyString1(new String(chars).substring(begin, end).toCharArray());
     }
 
     public MyString1 toLowerCase() {
-        /*
-         * return string int lower case
-         */
+        return new MyString1(new String(chars).toLowerCase().toCharArray());
     }
 
     public String toString() {
-        /*
-         * return the string that able to print this class
-         */
+        return new String(chars);
     }
-
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
