@@ -5,10 +5,13 @@ class Binary2Decimal {
 
     String binary = input.nextLine();
 
-    /*
-    Code that converts the input binary to decimal
-    */
+    int decimal = 0;
+    for(int i=0; i<binary.length(); i++) {
+      if(binary.charAt(binary.length() - i - 1) == '1') {
+        decimal += (Math.pow(2, i));
+      }
+    }
 
-    System.out.println(______);
+    System.out.println("The decimal value is " + decimal);
   }
 }
