@@ -1,25 +1,30 @@
-class FindChar {
+import java.util.Scanner;
+
+class Pyramid {
   public static void main(String[] args) {
 
-    java.util.Scanner input = new java.util.Scanner(System.in);
-    System.out.print("Enter a string: ");
-    String s = __________;
+    Scanner input = new Scanner(System.in);
 
-    System.out.print("Enter a character: ");
-    char ch = __________;
+    System.out.print("Enter the number of lines: ");
+    int numberOfLines = input.nextInt();
 
-    int count = count(s, ch);
-    System.out.println("The number of occurrences of " 
-      + ch + " in " + s + " is " + count);
-  }
+    if (numberOfLines < 1 || numberOfLines > 9) {
+      System.out.println("You must enter a number from 1 to 9");
+      System.exit(0);
+    }
 
-  public static int count(String str, char ch) {
-    int count = 0;
-    /*
-    s 에서 ch 맞는 코드
-    */
-
-
-    return count;
+    // Print lines
+    for (int i=numberOfLines; i>0; i--) {
+      for(int j=0; j<numberOfLines-i; j++) {
+        System.out.print("   ");
+      }
+      for(int j=i; j>0; j--) {
+        System.out.print("  " + j);
+      }
+      for(int j=2; j<=i; j++) {
+        System.out.print("  " + j);
+      }
+      System.out.print("\r\n");
+    }
   }
 }
