@@ -5,16 +5,19 @@ class CountNumbers {
 
     System.out.print("Enter the integers : ");
 
-    int number = input.nextInt();
-
-    // processing numbers
-    while (______) {
-
+    while(true) {
+      int number = input.nextInt();
+      if(number == 0) break;
+      counts[number]++;
     }
 
-    // print counts
-    for (______) {
-
+    for(int i=1; i<51; i++) {
+      int count = counts[i];
+      if(count > 0) {
+        System.out.print(i + " occurs " + count + " time");
+        if(count > 1) System.out.print("s");
+        System.out.print("\r\n");
+      }
     }
   }
 }
