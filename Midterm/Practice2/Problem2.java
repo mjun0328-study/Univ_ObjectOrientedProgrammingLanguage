@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Problem2 {
   public static void main(String[] args) {
@@ -33,32 +34,37 @@ public class Problem2 {
 }
 
 class GuessNumberGame {
-  /* define the fields
-   * 
-   * 
-   * 
-  */
+  public int targetNumber;
+  public int guessNumber;
+  public int counter;
+  private final Scanner scanner = new Scanner(System.in);
+  private final int COUNTER_LIMIT = 9;
+  private final int MIN = 0;
+  private final int MAX = 50;
 
-  /* define the constructor
-   * 
-   * 
-   * 
-  */
-
+  GuessNumberGame() {
+    this.counter = 0;
+  }
+  
   public void setTargetNumber() {
-    // complete the code
-
+    this.targetNumber = getRandomNumber();
   }
 
   public int getRandomNumber() {
-    // complete the code
-
+    Random random = new Random();
+    return random.nextInt(this.MAX - this.MIN + 1) + this.MIN;
   }
 
   public int getIntWithinRange() {
-    // complete the code
+    System.out.print("[Trial " + (this.counter + 1) + "] Guess the Number: ");
+    int input = scanner.nextInt();
+    if(input < this.MIN)
+      System.out.println("Error! Number must be greater than equal to " + this.MIN);
+    else if(input > this.MAX)
+      System.out.println("Error! Number must be less than equal to " + this.MAX);
+    else return input;
 
-
+    return this.getIntWithinRange();
   }
 
   public boolean checkCounter() {
