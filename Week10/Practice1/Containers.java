@@ -25,10 +25,22 @@ public class Containers {
 
     public static ArrayList<Bin> firstFit(int[] items) {
         ArrayList<Bin> containers = new ArrayList<Bin>();
+        boolean[] isUsed = new boolean[items.length];
+        int leftNum = items.length;
 
-        /*
-            문제의 설명대로 첫 번째 상자에 넣는 코드 ( 각 상자는 10파운드가 최대입니다)
-         */
+        while(leftNum > 0) {
+            Bin container = new Bin(10);
+            containers.add(container);
+
+            for(int i=0; i<items.length; i++) {
+                if(!isUsed[i]) {
+                    if(container.addItem(items[i])) {
+                        isUsed[i] = true;
+                        leftNum--;
+                    }
+                }
+            }
+        }
 
         return containers;
     }
@@ -39,15 +51,16 @@ public class Containers {
         private int totalWeight = 0;
 
         public Bin(int maxWeight) {
-            /*
-                생성자 코드
-             */
+            this.maxWeight = maxWeight;
         }
 
         public boolean addItem(int weight) {
-            /*
-                weight를 추가가능한지 확인하는 코드
-             */
+            boolean isAble = this.totalWeight + weight <= this.maxWeight;
+            if(isAble) {
+                objects.add(weight);
+                totalWeight += weight;
+            }
+            return isAble;
         }
 
         // main 문에서 출력을 위해 사용한 코드
@@ -55,7 +68,7 @@ public class Containers {
         public String toString() {
             String output = "";
             for (Integer weight: objects)
-                output += weight;
+                output += weight + " ";
 
             return output;
         }

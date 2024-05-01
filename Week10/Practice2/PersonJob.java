@@ -35,16 +35,11 @@ class Person {
 }
 
 // 상속을 위한 코드 필요
-class Student {
-
-    /*
-        문제를 보고 필요한 변수 정의
-     */
+class Student extends Person {
+    protected final String status = "freshman";
 
     Student(String name) {
-        /*
-            생성자 코드
-         */
+        super(name);
     }
 
     @Override
@@ -54,16 +49,13 @@ class Student {
 }
 
 // 상속을 위한 코드 필요
-class Employee {
-
-    /*
-        문제를 보고 필요한 변수 정의
-     */
-
+class Employee extends Person {
+    protected String office;
+    protected int salary;
+    protected String date_hired;
+    
     Employee(String name) {
-        /*
-            생성자 코드
-         */
+        super(name);
     }
 
     @Override
@@ -73,35 +65,26 @@ class Employee {
 }
 
 // 상속을 위한 코드 필요
-class Faculty {
-
-    /*
-        문제를 보고 필요한 변수 정의
-     */
+class Faculty extends Employee {
+    protected String office_hours;
+    protected String rank;
 
     Faculty(String name) {
-        /*
-            생성자 코드
-         */
+        super(name);
     }
 
     @Override
     public String toString() {
-        return "Faculty: " + name;
+        return "Faculty: " + getName();
     }
 }
 
 // 상속을 위한 코드 필요
-class Staff  {
-
-    /*
-        문제를 보고 필요한 변수 정의
-     */
+class Staff extends Employee {
+    protected String title;
 
     Staff(String name) {
-        /*
-            생성자 코드
-         */
+        super(name);
     }
 
     @Override
