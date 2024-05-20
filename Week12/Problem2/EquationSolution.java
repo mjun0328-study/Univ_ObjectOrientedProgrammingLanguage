@@ -9,9 +9,10 @@ public class EquationSolution {
         int b = input.nextInt();
         int c = input.nextInt();
 
-        /*
-          Rational class를 참고하여 코드 작성
-        */
+        Rational h = new Rational(-b, 2 * a);
+        Rational k = new Rational(4 * a * c - b * b, 4 * a);
+
+        System.out.print("h is " + h + " k is " + k);
       
     }
   
